@@ -9,10 +9,10 @@ const Dashboard = () => {
   const [categoryCount, setCategoryCount] = useState(0);
   const [ordersCount, setOrdersCount] = useState(0);
   const statCards = [
-    { name: "Product", amount: productsCount, color: "pink-600" },
-    { name: "Category", amount: categoryCount, color: "yellow-600" },
-    { name: "Users", amount: 116, color: "green-600" },
-    { name: "Order", amount: ordersCount, color: "green-600" },
+    { name: "Product", amount: productsCount, color: "pink" },
+    { name: "Category", amount: categoryCount, color: "yellow" },
+    { name: "Users", amount: 116, color: "green" },
+    { name: "Order", amount: ordersCount, color: "green" },
   ];
   useEffect(() => {
     async function fetchOrdersCount() {
