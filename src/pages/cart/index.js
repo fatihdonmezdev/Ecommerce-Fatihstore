@@ -32,6 +32,7 @@ const Cart = () => {
       setUserLoginState(false);
     }
   });
+  const orderProducts = () => {};
   return (
     <div className="lg:flex justify-center my-40 mb-80">
       <div className="lg:mr-20 lg:w-[50rem] border-2 p-8">
@@ -95,7 +96,10 @@ const Cart = () => {
           </span>
         </div>
         {userLoginState ? (
-          <button className="bg-blue-500 mt-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={() => orderProducts()}
+            className="bg-blue-500 mt-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
             Order Now
           </button>
         ) : (
