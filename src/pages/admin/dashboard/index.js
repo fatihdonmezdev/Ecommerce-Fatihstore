@@ -1,13 +1,27 @@
 import { getProductsCount } from "@/auth/firebaseUtils";
 import Sidebar from "@/components/admin/Sidebar";
 import { db } from "@/pages/_app";
+import { fetchOrders } from "@/store/orderSlice";
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const [productsCount, setProductsCount] = useState(0);
   const [categoryCount, setCategoryCount] = useState(0);
+  const [ordersCount, setOrdersCount] = useState(0);
   useEffect(() => {
+    async function fetchOrdersCount() {
+      try {
+        const ordersCollection = collection(db, "orders");
+        const ordersSnapshot = await getDocs(ordersCollection);
+        const count = ordersSnapshot.size;
+        setOrdersCount(count);
+      } catch (error) {
+        console.error("Error getting orders:", error.message);
+      }
+    }
+
     async function fetchProductsCount() {
       try {
         const productsCollection = collection(db, "products");
@@ -32,6 +46,7 @@ const Dashboard = () => {
     }
 
     fetchProductsCount();
+    fetchOrdersCount();
   }, []);
   return (
     <div>
@@ -76,6 +91,19 @@ const Dashboard = () => {
             </h5>
             <p class="text-3xl text-right text-black dark:text-neutral-50">
               116
+            </p>
+          </div>
+        </div>
+        <div class=" block mt-8 max-w-[18rem] rounded-lg bg-pink-600 ">
+          <div class="border-b-2 font-bold border-[#0000002d] px-6 py-3 text-white dark:text-neutral-50">
+            Order Amount
+          </div>
+          <div class="p-6">
+            <h5 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
+              Current Amount of Orders
+            </h5>
+            <p class="text-3xl text-right text-black dark:text-neutral-50">
+              {ordersCount}
             </p>
           </div>
         </div>
