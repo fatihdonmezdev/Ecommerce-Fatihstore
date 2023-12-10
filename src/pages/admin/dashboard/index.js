@@ -11,7 +11,7 @@ const Dashboard = () => {
   const statCards = [
     { name: "Product", amount: productsCount, color: "pink" },
     { name: "Category", amount: categoryCount, color: "yellow" },
-    { name: "Users", amount: 116, color: "green" },
+    { name: "Users", amount: 116, color: "blue" },
     { name: "Order", amount: ordersCount, color: "green" },
   ];
   useEffect(() => {
