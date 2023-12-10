@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product A",
+      "description": "This is the description for Product A.",
+      "price": 19.99,
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Product B",
+      "description": "This is the description for Product B.",
+      "price": 29.99,
+      "category": "Clothing"
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "description": "This is the description for Product C.",
+      "price": 39.99,
+      "category": "Home & Kitchen"
+    },
+    {
+      "id": 4,
+      "name": "Product D",
+      "description": "This is the description for Product D.",
+      "price": 49.99,
+      "category": "Toys & Games"
+    }
+  ]
+}
