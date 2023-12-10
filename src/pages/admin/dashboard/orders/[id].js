@@ -30,7 +30,6 @@ const OrderDetail = () => {
       fetchProductData();
     }
   }, [orderId]);
-  console.log(orderData);
   return (
     <div>
       <Sidebar />
