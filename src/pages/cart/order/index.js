@@ -2,7 +2,7 @@ import { db } from "@/pages/_app";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 
-const orderProducts = () => {
+const OrderProducts = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -79,4 +79,4 @@ const orderProducts = () => {
   );
 };
 
-export default orderProducts;
+export default OrderProducts;
