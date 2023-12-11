@@ -1,4 +1,5 @@
 import { addToCart } from "@/store/cartSlice";
+import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,7 +7,7 @@ const AddToCartButton = ({ product }) => {
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    window.location.reload();
+    window.location.replace("/cart");
   };
 
   return (

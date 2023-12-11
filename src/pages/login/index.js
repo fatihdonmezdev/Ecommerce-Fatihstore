@@ -29,7 +29,7 @@ const Login = () => {
         router.push("/");
       }, 1500);
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   }
   const formSubmitHandler = (e) => {

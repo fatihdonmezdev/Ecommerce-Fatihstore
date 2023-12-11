@@ -50,8 +50,8 @@ const Cart = () => {
           </div>
           <div className="border-[0.1rem]"></div>
 
-          {items.length > 0 ? (
-            items.map((product) => (
+          {items?.length > 0 ? (
+            items?.map((product) => (
               <div
                 key={product.id}
                 className="flex lg:flex-row flex-col justify-between items-center gap-8 py-2"
@@ -100,7 +100,7 @@ const Cart = () => {
             <span className="font-bold">
               $
               {items
-                .reduce((total, product) => total + product.subtotal, 5)
+                ?.reduce((total, product) => total + product.subtotal, 5)
                 ?.toFixed(2)}
             </span>
           </div>
