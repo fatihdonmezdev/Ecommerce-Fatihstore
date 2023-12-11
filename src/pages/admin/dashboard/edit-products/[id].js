@@ -57,11 +57,13 @@ const EditProduct = () => {
   if (!productData || !formik) {
     return <div>Loading product data...</div>;
   }
-  console.log(formik.values);
   return (
     <div>
       <Sidebar />
       <div className="mt-40 ml-80">
+        <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
+          Edit Product
+        </h1>
         {productData && formik ? (
           <form onSubmit={formik.handleSubmit} className="max-w-sm mx-auto">
             <div className="mb-5">

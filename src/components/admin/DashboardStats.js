@@ -1,6 +1,6 @@
 import React from "react";
 
-const DashboardStats = ({ amount, name }) => {
+const DashboardStats = ({ amount, name, color }) => {
   return (
     <div className={`block mt-8 max-w-[18rem] rounded-lg bg-slate-500`}>
       <div className="border-b-2 font-bold border-[#0000002d] px-6 py-3 text-white dark:text-neutral-50">
