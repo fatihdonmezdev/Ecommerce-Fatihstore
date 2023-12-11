@@ -3,7 +3,6 @@ import Navbar from "@/components/navbar";
 import "@/styles/globals.css";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase } from "firebase/database";
 import { store } from "@/store/store";
 import { Provider } from "react-redux";
 import { getFirestore } from "firebase/firestore";
