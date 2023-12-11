@@ -1,6 +1,7 @@
 import { db } from "@/pages/_app";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const OrderProducts = () => {
   const [name, setName] = useState("");
@@ -16,6 +17,11 @@ const OrderProducts = () => {
       email,
       address,
     });
+    toast.success("Order placed successfully");
+    localStorage.removeItem("cart");
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
   };
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart"));

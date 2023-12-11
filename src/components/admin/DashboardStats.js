@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React from "react";
 
 const DashboardStats = ({ amount, name }) => {
   return (

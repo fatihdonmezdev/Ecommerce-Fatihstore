@@ -71,9 +71,11 @@ const Hero = () => {
         <p className="absolute lg:flex hidden bottom-[16rem] left-40 text-3xl">
           Explore a World of Cutting-Edge Tech
         </p>
-        <button className="absolute lg:flex hidden bottom-[10rem] bg-black text-white rounded-xl py-[0.7rem] px-4 left-40 text-xl">
-          Shop now
-        </button>
+        <Link href="/products">
+          <button className="absolute lg:flex hidden bottom-[10rem] bg-black text-white rounded-xl py-[0.7rem] px-4 left-40 text-xl">
+            Shop now
+          </button>
+        </Link>
       </div>
       <div className="lg:mt-20 mt-10 lg:ml-40 lg:mr-40">
         <div className="flex justify-between">
