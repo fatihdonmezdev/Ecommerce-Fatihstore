@@ -1,12 +1,13 @@
 import { addToCart } from "@/store/cartSlice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const AddToCartButton = ({ product }) => {
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    window.location.reload();
+    toast.success("Product added to cart");
   };
 
   return (

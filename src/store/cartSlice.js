@@ -13,7 +13,7 @@ const calculateSubtotal = (quantity, price) => quantity * price;
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: loadCartFromLocalStorage(),
+    items: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -68,6 +68,10 @@ const cartSlice = createSlice({
       }
 
       localStorage.setItem("cart", JSON.stringify(state.items));
+    },
+    updateCart: (state) => {
+      const itemsInLocal = loadCartFromLocalStorage();
+      state.items = itemsInLocal;
     },
   },
 });

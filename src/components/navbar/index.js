@@ -11,14 +11,16 @@ import { CiShoppingCart } from "react-icons/ci";
 import { useSelector, useDispatch } from "react-redux";
 import { TiThMenu } from "react-icons/ti";
 import Link from "next/link";
+import { updateCart } from "@/store/cartSlice";
+import { set } from "firebase/database";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const [amount, setAmount] = useState(0);
   const products = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
   useEffect(() => {
-    setAmount(products ? products.length : 0);
-
+    dispatch(updateCart());
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUser(true);
@@ -27,6 +29,10 @@ const Navbar = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    setAmount(products.length);
+  }, [products]);
   const router = useRouter();
   const logout = async () => {
     try {
@@ -97,6 +103,7 @@ const Navbar = () => {
         >
           <CiShoppingCart size={40} />
           <span className="">({amount})</span>
+          {/* SHOWING AMOUNT OF PRODUCTS NOT QUANTITY.*/}
         </div>
       </div>
     </div>
