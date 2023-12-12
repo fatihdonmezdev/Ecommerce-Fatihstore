@@ -39,7 +39,7 @@ const Products = () => {
   };
 
   return (
-    <div className="grid grid-cols-[auto,1fr,auto] gap-4 mb-10">
+    <div className="grid min-h-screen grid-cols-[auto,1fr,auto] gap-4 mb-10">
       <div className="lg:ml-40 ml-4 font-bold mt-8 lg:mr-20">
         <div>Filter Products</div>
         {getUniqueCategories().map((category) => (

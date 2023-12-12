@@ -5,6 +5,7 @@ import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../_app";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Cart = () => {
   const items = useSelector((state) => state.cart.items);

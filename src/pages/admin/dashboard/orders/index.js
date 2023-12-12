@@ -1,65 +1,65 @@
 import Sidebar from "@/components/admin/Sidebar";
-import React, { useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
+import { fetchOrders } from "@/store/orderSlice";
 import { fetchProducts } from "@/store/productSlice";
 import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const EditProduct = () => {
+const Orders = () => {
+  const { orders, status } = useSelector((state) => state.orders);
   const router = useRouter();
-  const { products, status } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchProducts());
+      dispatch(fetchOrders());
     }
   }, [dispatch, status]);
-  const editProduct = (id) => {
-    router.push(`/admin/dashboard/edit-products/${id}`);
+  const OrderDetail = (id) => {
+    router.push(`/admin/dashboard/orders/${id}`);
   };
-
   return (
     <div>
       <Sidebar />
+
       <div className="ml-80 mt-40 relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Product name
+                User's Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Category
+                Adress
               </th>
               <th scope="col" className="px-6 py-3">
-                Price
+                Email
               </th>
               <th scope="col" className="px-6 py-3">
-                Action
+                Details
               </th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {orders.map((order) => (
               <tr
-                key={product.name}
+                key={order.name}
                 className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
               >
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {product.name}
+                  {order.name}
                 </th>
-                <td className="px-6 py-4">{product.category}</td>
-                <td className="px-6 py-4">{product.price}</td>
+                <td className="px-6 py-4">{order.address}</td>
+                <td className="px-6 py-4">{order.email}</td>
                 <td className="px-6 py-4">
                   <button
                     type="button"
-                    onClick={() => editProduct(product.id)}
+                    onClick={() => OrderDetail(order.id)}
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
-                    Edit
+                    See Details
                   </button>
                 </td>
               </tr>
@@ -71,4 +71,4 @@ const EditProduct = () => {
   );
 };
 
-export default EditProduct;
+export default Orders;

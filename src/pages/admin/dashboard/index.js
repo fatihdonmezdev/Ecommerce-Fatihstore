@@ -1,4 +1,4 @@
-import { getProductsCount } from "@/auth/firebaseUtils";
+import DashboardStats from "@/components/admin/DashboardStats";
 import Sidebar from "@/components/admin/Sidebar";
 import { db } from "@/pages/_app";
 import { collection, getDocs } from "firebase/firestore";
@@ -7,7 +7,25 @@ import React, { useEffect, useState } from "react";
 const Dashboard = () => {
   const [productsCount, setProductsCount] = useState(0);
   const [categoryCount, setCategoryCount] = useState(0);
+  const [ordersCount, setOrdersCount] = useState(0);
+  const statCards = [
+    { name: "Product", amount: productsCount },
+    { name: "Category", amount: categoryCount },
+    { name: "Users", amount: 116 },
+    { name: "Order", amount: ordersCount },
+  ];
   useEffect(() => {
+    async function fetchOrdersCount() {
+      try {
+        const ordersCollection = collection(db, "orders");
+        const ordersSnapshot = await getDocs(ordersCollection);
+        const count = ordersSnapshot.size;
+        setOrdersCount(count);
+      } catch (error) {
+        console.error("Error getting orders:", error.message);
+      }
+    }
+
     async function fetchProductsCount() {
       try {
         const productsCollection = collection(db, "products");
@@ -32,6 +50,7 @@ const Dashboard = () => {
     }
 
     fetchProductsCount();
+    fetchOrdersCount();
   }, []);
   return (
     <div>
@@ -40,45 +59,14 @@ const Dashboard = () => {
         Welcome to the Admin Dashboard!
       </div>
       <div className="grid ml-80 grid-cols-3">
-        <div class=" block max-w-[18rem] rounded-lg bg-green-600 ">
-          <div class="border-b-2 font-bold border-[#0000002d] px-6 py-3 text-white dark:text-neutral-50">
-            Product Amount
-          </div>
-          <div class="p-6">
-            <h5 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
-              Current Amount of Products
-            </h5>
-            <p class="text-3xl text-right text-black dark:text-neutral-50">
-              {productsCount}
-            </p>
-          </div>
-        </div>
-        <div class=" block max-w-[18rem] rounded-lg bg-yellow-600 ">
-          <div class="border-b-2 font-bold border-[#0000002d] px-6 py-3 text-white dark:text-neutral-50">
-            Category Amount
-          </div>
-          <div class="p-6">
-            <h5 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
-              Current Amount of Categories
-            </h5>
-            <p class="text-3xl text-right text-black dark:text-neutral-50">
-              {categoryCount}
-            </p>
-          </div>
-        </div>
-        <div class=" block max-w-[18rem] rounded-lg bg-pink-600 ">
-          <div class="border-b-2 font-bold border-[#0000002d] px-6 py-3 text-white dark:text-neutral-50">
-            User Amount
-          </div>
-          <div class="p-6">
-            <h5 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
-              Current Amount of Users
-            </h5>
-            <p class="text-3xl text-right text-black dark:text-neutral-50">
-              116
-            </p>
-          </div>
-        </div>
+        {statCards.map((stat) => (
+          <DashboardStats
+            key={stat.name}
+            name={stat.name}
+            amount={stat.amount}
+            color={stat.color}
+          />
+        ))}
       </div>
     </div>
   );

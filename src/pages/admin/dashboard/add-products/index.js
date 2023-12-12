@@ -28,8 +28,14 @@ const AddProducts = () => {
   return (
     <div>
       <Sidebar />
-      <div className="mt-40">
-        <form onSubmit={formik.handleSubmit} className="max-w-sm mx-auto">
+      <div className="mt-40 ">
+        <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
+          Add Products
+        </h1>
+        <form
+          onSubmit={formik.handleSubmit}
+          className="border-2 p-8 max-w-lg mx-auto"
+        >
           <div className="mb-5">
             <div className="mb-5">
               <label
