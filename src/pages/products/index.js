@@ -2,12 +2,15 @@ import Cards from "@/components/cards";
 import CheckBox from "@/components/checkboxes";
 import FooterIcons from "@/components/footericons";
 import { fetchProducts } from "@/store/productSlice";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const Products = () => {
   const dispatch = useDispatch();
   const { products, status } = useSelector((state) => state.products);
+  const { query } = useRouter();
+  const categoryValue = query[""];
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
@@ -15,7 +18,11 @@ const Products = () => {
       dispatch(fetchProducts());
     }
   }, [dispatch, status]);
-
+  useEffect(() => {
+    if (categoryValue) {
+      setSelectedCategories([categoryValue]);
+    }
+  }, [categoryValue]);
   const filteredProducts = products.filter((product) =>
     selectedCategories.length === 0
       ? true

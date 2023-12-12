@@ -29,7 +29,7 @@ const categoriesData = [
     image: Watches,
   },
   {
-    name: "TV & Home",
+    name: "Earphones",
     image: tvhome,
   },
   {
@@ -88,7 +88,10 @@ const Hero = () => {
       <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-10 gap-4 max-w-[1200px] mx-auto mt-20 ">
         {categoriesData.map((category) => (
           <div key={category.name} className="bg-[#F3F3F3]  mx-auto ">
-            <Link className="cursor-pointer" href="/products">
+            <Link
+              className="cursor-pointer"
+              href={`/products?=${category.name}`}
+            >
               <Image alt="Hero" src={category.image} height={400} width={400} />
               <p className="bg-white mx-4 text-3xl lg:text-xl mb-8 text-center py-4 rounded-lg">
                 {category.name}
@@ -110,7 +113,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="mt-40 mx-8 lg:flex justify-between">
+      <div className="mt-40 lg:mx-40 mx-8 lg:flex justify-between">
         <div className="max-w-[600px]">
           <p className="text-4xl lg:text-5xl  font-bold">Deals of the month</p>
           <p className="text-3xl lg:text-lg  mt-8">
@@ -120,9 +123,11 @@ const Hero = () => {
             Don't miss out! <br />
             🎁🛒
           </p>
-          <button className="bg-black mt-8 flex items-center gap-4 text-white rounded-xl py-[0.7rem] px-4 left-40 lg:text-lg text-4xl">
-            View Products <FaArrowRight alt="Hero" />
-          </button>
+          <Link href="/products">
+            <button className="bg-black mt-8 flex items-center gap-4 text-white rounded-xl py-[0.7rem] px-4 left-40 lg:text-lg text-4xl">
+              View Products <FaArrowRight alt="Hero" />
+            </button>
+          </Link>
         </div>
         <div className="hidden lg:flex">
           <Image alt="Hero" width={500} height={500} src={discount} />

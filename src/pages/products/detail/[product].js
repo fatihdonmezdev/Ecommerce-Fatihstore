@@ -10,6 +10,9 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const { products, status } = useSelector((state) => state.products);
   const router = useRouter();
+  const thisPage = products.find(
+    (product) => product.id === router.query.product
+  );
   const productid = router.query.product;
   const product = products.find((product) => product.id === productid);
   useEffect(() => {
@@ -20,6 +23,21 @@ const ProductDetail = () => {
   return (
     <div className="">
       <DetailCard product={product} />
+      <div className="my-8 text-3xl font-bold text-center">
+        Recommended {thisPage.category}
+        {/* Products in the same category are displayed. */}
+      </div>
+      <div className="grid grid-cols-3 gap-20 mx-40 mb-20">
+        {products
+          .filter(
+            (product) =>
+              product.category === thisPage.category &&
+              product.id !== thisPage.id
+          )
+          .map((product) => (
+            <Cards key={product.id} product={product} />
+          ))}
+      </div>
       <FooterIcons />
     </div>
   );
