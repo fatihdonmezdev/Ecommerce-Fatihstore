@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/logo-black.svg";
+import logo from "../../../public/FD.png";
 import { signOut } from "firebase/auth";
 import { auth } from "@/pages/_app";
 import { useRouter } from "next/router";
@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <div className="flex flex-col lg:flex-row lg:mt-8 items-center gap-4 mb-8 justify-between text-xl lg:mx-8">
       <Link href="/">
-        <Image alt="Hero" className="lg:flex" src={logo} />
+        <Image alt="Hero" className="lg:flex w-40 h-auto" src={logo} />
         <ToastContainer />
       </Link>
 

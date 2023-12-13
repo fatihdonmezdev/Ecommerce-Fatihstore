@@ -60,7 +60,7 @@ const EditProduct = () => {
   return (
     <div>
       <div className="mt-40 ml-80">
-        <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
+        <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900">
           Edit Product
         </h1>
         {productData && formik ? (
@@ -68,7 +68,7 @@ const EditProduct = () => {
             <div className="mb-5">
               <label
                 htmlFor="name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Your product name
               </label>
@@ -78,7 +78,7 @@ const EditProduct = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.name}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 00er-gray-600 "
                 placeholder="Iphone 11"
                 required
               />
@@ -90,7 +90,7 @@ const EditProduct = () => {
             <div className="mb-5">
               <label
                 htmlFor="description"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Your product description.
               </label>
@@ -101,7 +101,7 @@ const EditProduct = () => {
                 value={formik.values.description}
                 placeholder="Your product description"
                 id="description"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required
               />
               {formik.touched.description && formik.errors.description ? (
@@ -112,7 +112,7 @@ const EditProduct = () => {
             <div className="mb-5">
               <label
                 htmlFor="category"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Your product category.
               </label>
@@ -123,7 +123,7 @@ const EditProduct = () => {
                 value={formik.values.category}
                 placeholder="Your product category"
                 id="category"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required
               />
               {formik.touched.category && formik.errors.category ? (
@@ -134,7 +134,7 @@ const EditProduct = () => {
             <div className="mb-5">
               <label
                 htmlFor="price"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 "
               >
                 Your product's price.
               </label>
@@ -145,7 +145,7 @@ const EditProduct = () => {
                 value={formik.values.price}
                 placeholder="Your product's price"
                 id="price"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required
               />
               {formik.touched.price && formik.errors.price ? (

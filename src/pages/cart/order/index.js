@@ -28,8 +28,8 @@ const OrderProducts = () => {
     setItems(cart);
   }, []);
   return (
-    <>
-      <form onSubmit={handleSubmit} className="mx-80">
+    <div className="min-h-screen w-full flex justify-center items-center">
+      <form onSubmit={handleSubmit} className="w-full mx-80 border-2 p-10">
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-2" htmlFor="name">
             Name:
@@ -81,7 +81,7 @@ const OrderProducts = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
