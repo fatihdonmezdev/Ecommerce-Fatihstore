@@ -37,6 +37,7 @@ const ProductDetail = () => {
           .map((product) => (
             <Cards key={product.id} product={product} />
           ))}
+        {/*mapping products in the same category */}
       </div>
       <FooterIcons />
     </div>
