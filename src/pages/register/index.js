@@ -1,6 +1,6 @@
 import { auth } from "../_app";
 import { useEffect, useState } from "react";
-import logo from "../../../public/logo-black.svg";
+import logo from "../../../public/FD.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";

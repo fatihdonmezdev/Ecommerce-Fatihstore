@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../public/logo-black.svg";
+import logo from "../../../public/FD.png";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../_app";
 import { useState } from "react";
