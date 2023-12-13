@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/public/FD-black.png";
+import logo from "../../../public/FD-black.png";
 import facebook from "/public/assets/footer/facebook.svg";
 import instagram from "/public/assets/footer/instagram.svg";
 import twitter from "/public/assets/footer/twitter.svg";
