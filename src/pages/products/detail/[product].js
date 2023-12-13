@@ -34,9 +34,20 @@ const ProductDetail = () => {
               product.category === thisPage.category &&
               product.id !== thisPage.id
           )
-          .map((product) => (
-            <Cards key={product.id} product={product} />
-          ))}
+          .map((product) => <Cards key={product.id} product={product} />)
+          .length < 1 ? (
+          <div className="text-center text-2xl font-semibold">
+            No products in this category
+          </div>
+        ) : (
+          products
+            .filter(
+              (product) =>
+                product.category === thisPage.category &&
+                product.id !== thisPage.id
+            )
+            .map((product) => <Cards key={product.id} product={product} />)
+        )}
         {/*mapping products in the same category */}
       </div>
       <FooterIcons />

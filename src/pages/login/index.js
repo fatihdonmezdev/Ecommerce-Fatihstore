@@ -24,6 +24,7 @@ const Login = () => {
       const user = userCredential.user;
       dispatch(setUser(user.uid));
       console.log(auth.currentUser);
+      localStorage.setItem("user", user.uid);
       toast.success("Login Successfull");
       setTimeout(() => {
         router.push("/");

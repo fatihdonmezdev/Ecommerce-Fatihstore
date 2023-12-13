@@ -27,7 +27,6 @@ const AddProducts = () => {
 
   return (
     <div>
-      <Sidebar />
       <div className="mt-40 ">
         <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
           Add Products

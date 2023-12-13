@@ -32,7 +32,6 @@ const OrderDetail = () => {
   }, [orderId]);
   return (
     <div>
-      <Sidebar />
       {orderLoading ? (
         <p className="flex justify-center items-center">Loading...</p>
       ) : (

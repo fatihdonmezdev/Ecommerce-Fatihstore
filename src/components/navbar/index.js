@@ -38,6 +38,7 @@ const Navbar = () => {
     try {
       await signOut(auth);
       toast.success("Logout Successfull");
+      localStorage.removeItem("user");
       setTimeout(() => {
         router.push("/login");
       }, 1500);

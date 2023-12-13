@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { getFirestore } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Sidebar from "@/components/admin/Sidebar";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBxcYN5iRK2DlEutna6H-pxyPqw44BkN8I",
@@ -38,6 +39,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       {!isAdminRoute && <Navbar />}
+      {isAdminRoute && <Sidebar />}
       <Component {...pageProps} />
       {!isAdminRoute && <Footer />}
     </Provider>

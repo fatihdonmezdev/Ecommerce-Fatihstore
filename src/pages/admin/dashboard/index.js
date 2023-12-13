@@ -54,7 +54,6 @@ const Dashboard = () => {
   }, []);
   return (
     <div>
-      <Sidebar />
       <div className="text-center text-3xl my-20">
         Welcome to the Admin Dashboard!
       </div>

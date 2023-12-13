@@ -59,7 +59,6 @@ const EditProduct = () => {
   }
   return (
     <div>
-      <Sidebar />
       <div className="mt-40 ml-80">
         <h1 className="text-center mb-10 text-4xl font-semibold text-gray-900 dark:text-white">
           Edit Product

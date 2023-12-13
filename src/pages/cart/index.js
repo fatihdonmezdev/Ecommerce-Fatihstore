@@ -11,7 +11,7 @@ const Cart = () => {
   const items = useSelector((state) => state.cart.items);
   const [userLoginState, setUserLoginState] = useState(false);
   const dispatch = useDispatch();
-
+  const router = useRouter();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -21,7 +21,9 @@ const Cart = () => {
       }
     });
   }, []);
-  const orderProducts = () => {};
+  const orderProducts = () => {
+    router.push("/cart/order");
+  };
   return (
     <div className="min-h-screen">
       <div className="lg:flex justify-center my-40 mb-80">
