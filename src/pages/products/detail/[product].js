@@ -10,11 +10,11 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const { products, status } = useSelector((state) => state.products);
   const router = useRouter();
-  const thisPage = products.find(
+  const thisPage = products?.find(
     (product) => product.id === router.query.product
   );
   const productid = router.query.product;
-  const product = products.find((product) => product.id === productid);
+  const product = products?.find((product) => product.id === productid);
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchProducts());
@@ -24,17 +24,17 @@ const ProductDetail = () => {
     <div className="">
       <DetailCard product={product} />
       <div className="my-8 text-3xl font-bold text-center">
-        Recommended {thisPage.category}
+        Recommended {thisPage?.category}
         {/* Products in the same category are displayed. */}
       </div>
       <div className="grid grid-cols-3 gap-20 mx-40 mb-20">
         {products
           .filter(
             (product) =>
-              product.category === thisPage.category &&
-              product.id !== thisPage.id
+              product?.category === thisPage?.category &&
+              product?.id !== thisPage?.id
           )
-          .map((product) => <Cards key={product.id} product={product} />)
+          .map((product) => <Cards key={product?.id} product={product} />)
           .length < 1 ? (
           <div className="text-center text-2xl font-semibold">
             No products in this category
@@ -43,10 +43,10 @@ const ProductDetail = () => {
           products
             .filter(
               (product) =>
-                product.category === thisPage.category &&
-                product.id !== thisPage.id
+                product?.category === thisPage?.category &&
+                product?.id !== thisPage?.id
             )
-            .map((product) => <Cards key={product.id} product={product} />)
+            .map((product) => <Cards key={product?.id} product={product} />)
         )}
         {/*mapping products in the same category */}
       </div>
