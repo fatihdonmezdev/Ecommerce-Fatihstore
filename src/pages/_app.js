@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   // Check if the current route is in the list of admin routes
-  const isAdminRoute = router.pathname.startsWith("/admin");
+  const isAdminRoute = router.pathname.startsWith("/admin/dashboard");
 
   useEffect(() => {
     window.scrollTo(0, 0);
