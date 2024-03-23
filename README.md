@@ -2,6 +2,7 @@ What is the project?
 
 This project is an ecommerce project I made with next.js and Firebase Auth, firestore. This project also has an admin CMS in which you can 
 add new products, edit products, remove products, see orders made by users.
+
 Which technologies are used?
 The tech stack is:
 
